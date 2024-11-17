@@ -1,0 +1,21 @@
+Python module for likely-hood of phylogenetic tree (name?):
+
+	Features:
+		- Organize table of Parents/infant, branch length, sequences into a tree object
+		- Read FASTA files
+		- Calculate Likely-hood of the sequence for each node given 
+		- Takes different input for evolution model
+		- Calculate Likelyhood of the Whole tree alignment
+
+First idea of process:
+
+	- Create a NODE class and a TREE class (with NODE object in it)
+	- In the NODE class store every known data for the node to acces them easily
+	- Format the input data into the new Classes
+	- Order the TREE from the tip (where we know the alignment) to the roots
+	- for each alignment at the tip, generate a 2 dimentionnal matrix for the likelyhood of the nucleotides where each row is a nucleotide in the sequence and each column is A,T,C,G and the value is the probabilities to observe the nucleotide					         ex : [1,0,0,0
+				     										      0,0,1,0]... 
+	- use of numpy to do treat likely hood matrix has 2 dimensional array and calcul every probability in parallel
+	- Create a function to calculate the probabilites up the tree based on the given evolution model
+	- iterate through each generation from the tip to the root to calculate the likelyhood matrix from the infant for each node.
+	- when each node has a likelyhood matrix, extract the likelyhood of the tree from the matrix of the root node.
